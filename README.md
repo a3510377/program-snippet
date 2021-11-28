@@ -6,7 +6,7 @@
 
 #### `python`
 
-- [剪刀石頭布](/python/剪刀石頭布)
+- [剪刀石頭布](./python/RockPaperScissors/README.md)
 
 ```cmd=
 pip install -r requirements.txt
