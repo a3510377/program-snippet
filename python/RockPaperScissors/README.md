@@ -4,8 +4,10 @@
 
 ### 初始化
 
+`python >= 3.8`
+
 ```cmd=
-pip install -r requirements.txt
+pip install -r ./python/RockPaperScissors/requirements.txt
 python ./python/RockPaperScissors/
 ```
 
