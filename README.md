@@ -4,7 +4,7 @@
 
 ### 開發人員
 
-> 猴子<img align="right" src="https://cdn.discordapp.com/avatars/688181698822799414/f6534feffc3f15cf439cb2fdd579aab5.webp?size=80"  height="auto" width="30px" style="border-radius:50%">
+> 猴子<img align="right" src="https://cdn.discordapp.com/avatars/688181698822799414/f6534feffc3f15cf439cb2fdd579aab5.webp?size=80"  height="auto" width="40px" >
 >
 > - <a href="https://discord.com/invite/rCZeuaucjf">discord 群</a>
 > - [discord](https://discord.com/users/688181698822799414)
