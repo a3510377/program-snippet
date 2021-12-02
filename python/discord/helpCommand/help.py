@@ -17,12 +17,11 @@ class Help_Cog(commands.Cog, name="幫助類"):
         embeds = []
         for cog_name in list(self.bot.cogs):
             cmd_text = ""
-            _embed = discord.Embed(
-                title=f"{cog_name}", colour=ctx.author.colour)
+            _embed = discord.Embed(title=f"{cog_name}", colour=ctx.author.colour)
             for cmd in self.bot.cogs[str(cog_name)].get_commands():
                 _embed.add_field(name=f"**`{aliases if cmd.aliases else cmd}`** **:**",
                                  value=f"{(cmd.brief if cmd.brief else cmd.help) if (cmd.brief if cmd.brief else cmd.help) else '無'}")
-                aliases = f"{cmd}"
+                aliases = cmd
                 for i in cmd.aliases:
                     aliases += f"/{i}"
                 cmd_text += f"**`{aliases if cmd.aliases else cmd}`** **:** {(cmd.brief if cmd.brief else cmd.help) if (cmd.brief if cmd.brief else cmd.help) else '無'}\n"
@@ -53,8 +52,8 @@ class Help_Cog(commands.Cog, name="幫助類"):
                     brief = ""
                     if cmd.brief:
                         brief += f"{cmd.brief}\n"
-                    embed = discord.Embed(
-                        title=f"{aliases if cmd.aliases else cmd}", description=f"{brief}", colour=ctx.author.colour)
+                    embed = discord.Embed(title=f"{aliases if cmd.aliases else cmd}",
+                                          description=f"{brief}", colour=ctx.author.colour)
                     embed.add_field(
                         name="用法", value=f"{self.bot.prefix}{aliases if cmd.aliases else cmd} {cmd.usage if cmd.usage else ''}", inline=False)
                     try:
@@ -66,7 +65,7 @@ class Help_Cog(commands.Cog, name="幫助類"):
                         embed.set_image(
                             url=cmd_help)
                     embed.add_field(
-                        name="說明", value=f"{(cmd.help).replace(cmd_help, '')}", inline=False)
+                        name="說明", value=f"{cmd.help.replace(cmd_help, '')}", inline=False)
                     embed.set_thumbnail(url=self.bot.user.avatar_url)
                     await ctx.send(embed=embed)
                 except Exception as err:
@@ -87,19 +86,20 @@ class Help_Cog(commands.Cog, name="幫助類"):
         while True:
             try:
                 reaction, user = await self.bot.wait_for("reaction_add", timeout=30, check=check)
-                if str(reaction.emoji) == "▶️" and page < max_page:
+                emoji = str(reaction.emoji)
+                if emoji == "▶️" and page < max_page:
                     page += 1
                     await message.edit(embed=embeds[page])
                     await message.remove_reaction(reaction, user)
-                elif str(reaction.emoji) == "⏩" and page < max_page:
+                elif emoji == "⏩" and page < max_page:
                     page += 2
                     await message.edit(embed=embeds[page])
                     await message.remove_reaction(reaction, user)
-                elif str(reaction.emoji) == "◀️" and page >= 1:
+                elif emoji == "◀️" and page >= 1:
                     page -= 1
                     await message.edit(embed=embeds[page])
                     await message.remove_reaction(reaction, user)
-                elif str(reaction.emoji) == "⏪" and page >= 1:
+                elif emoji == "⏪" and page >= 1:
                     page -= 2
                     await message.edit(embed=embeds[page])
                     await message.remove_reaction(reaction, user)
