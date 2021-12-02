@@ -11,7 +11,7 @@ class Help_Cog(commands.Cog, name="幫助類"):
         self.bot = bot
 
     @commands.command(brief="幫助", usage="<指令>")
-    async def help(self, ctx, command=None):
+    async def help(self, ctx: commands.Context, command: str = None):
         """幫助命令"""
         embed = discord.Embed(title="幫助", colour=ctx.author.colour)
         embeds = []
@@ -74,7 +74,7 @@ class Help_Cog(commands.Cog, name="幫助類"):
             else:
                 await ctx.send("無該指令")
 
-    async def check_emoji(self, ctx, embeds):
+    async def check_emoji(self, ctx: commands.Context, embeds: discord.Embed):
         max_page = len(embeds) - 1
         message = await ctx.send(embed=embeds[0])
         emojis = ["⏪", "◀️", "▶️", "⏩", "🛑"]
@@ -82,7 +82,7 @@ class Help_Cog(commands.Cog, name="幫助類"):
             await message.add_reaction(emoji)
         page = 0
 
-        def check(reaction, user):
+        def check(reaction: discord.Reaction, user: discord.User):
             return user == ctx.author and str(reaction.emoji) in emojis
         while True:
             try:
@@ -90,31 +90,19 @@ class Help_Cog(commands.Cog, name="幫助類"):
                 if str(reaction.emoji) == "▶️" and page < max_page:
                     page += 1
                     await message.edit(embed=embeds[page])
-                    try:
-                        await message.remove_reaction(reaction, user)
-                    except:
-                        pass
+                    await message.remove_reaction(reaction, user)
                 elif str(reaction.emoji) == "⏩" and page < max_page:
                     page += 2
                     await message.edit(embed=embeds[page])
-                    try:
-                        await message.remove_reaction(reaction, user)
-                    except:
-                        pass
+                    await message.remove_reaction(reaction, user)
                 elif str(reaction.emoji) == "◀️" and page >= 1:
                     page -= 1
                     await message.edit(embed=embeds[page])
-                    try:
-                        await message.remove_reaction(reaction, user)
-                    except:
-                        pass
+                    await message.remove_reaction(reaction, user)
                 elif str(reaction.emoji) == "⏪" and page >= 1:
                     page -= 2
                     await message.edit(embed=embeds[page])
-                    try:
-                        await message.remove_reaction(reaction, user)
-                    except:
-                        pass
+                    await message.remove_reaction(reaction, user)
                 elif str(message.emoji) == "🛑":
                     await message.clear_reactions()
                     return
