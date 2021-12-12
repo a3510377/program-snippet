@@ -9,8 +9,9 @@
 ```cmd=
 cd ./python/RockPaperScissors/requirements.txt
 python -m venv env
-pip install -r ./python/RockPaperScissors/requirements.txt
-python ./python/RockPaperScissors/
+env\Scripts\activate # or `source env/bin/activate`
+pip install -r requirements.txt
+python index.py
 ```
 
 ### 指令使用

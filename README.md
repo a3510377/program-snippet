@@ -17,12 +17,6 @@
 - [discord 相關](./python/discord)
   - [help command](./python/discord/helpCommand)
 
-```cmd=
-python -m venv env
-env\Scripts\activate # or `source env/bin/activate`
-pip install -r requirements.txt
-```
-
 --
 
 #### `typescript`
