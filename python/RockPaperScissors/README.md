@@ -7,7 +7,7 @@
 `python >= 3.8`
 
 ```cmd=
-cd ./python/RockPaperScissors/requirements.txt
+cd ./python/RockPaperScissors
 python -m venv env
 env\Scripts\activate # or `source env/bin/activate`
 pip install -r requirements.txt
