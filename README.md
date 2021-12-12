@@ -17,11 +17,11 @@
 - [discord 相關](./python/discord)
   - [help command](./python/discord/helpCommand)
 
---
+---
 
 #### `typescript`
 
---
+---
 
 #### `javascript`
 
