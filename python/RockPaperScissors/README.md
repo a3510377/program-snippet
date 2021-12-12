@@ -7,6 +7,8 @@
 `python >= 3.8`
 
 ```cmd=
+cd ./python/RockPaperScissors/requirements.txt
+python -m venv env
 pip install -r ./python/RockPaperScissors/requirements.txt
 python ./python/RockPaperScissors/
 ```
