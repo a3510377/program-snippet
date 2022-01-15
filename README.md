@@ -27,3 +27,4 @@
 
 - node
 - ## dom
+<!-- pip freeze > requirements.txt -->
