@@ -10,6 +10,7 @@ declare global {
 }
 
 export {};
+
 const isDict = (data: Object | string): boolean => {
   let string = "";
   try {
@@ -26,7 +27,7 @@ String.prototype.format = function (...data) {
     all = 0;
 
   data.forEach((_) => {
-    if (isDict(_)) _data = { ..._data, ..._ };
+    if (isDict(_)) _data = { ..._data, ...(_ as Object) };
     else _data[(all++).toString()] = _ as string;
   });
 

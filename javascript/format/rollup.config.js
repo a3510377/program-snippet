@@ -5,7 +5,7 @@ import sourcemaps from "rollup-plugin-sourcemaps";
 import ts from "rollup-plugin-typescript2";
 
 export default {
-  input: "./src/index.ts",
+  input: "./src/format.ts",
   plugins: [commonjs(), ts(), nodeResolve(), sourcemaps()],
   output: {
     format: "esm",
