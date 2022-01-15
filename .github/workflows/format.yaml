@@ -12,11 +12,6 @@ jobs:
       - name: git-checkout
         uses: actions/checkout@v2
 
-      - name: Setup Node.js v14.x
-        uses: actions/setup-node@v1
-        with:
-          node-version: "14.x"
-
       ################################################################
       - name: Push
         uses: s0/git-publish-subdir-action@develop
