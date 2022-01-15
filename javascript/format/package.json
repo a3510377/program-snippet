@@ -2,11 +2,14 @@
   "name": "format",
   "version": "1.0.0",
   "main": "index.js",
-  "description": "",
+  "description": "製作 format 函數，符合 python 等 函數用法",
   "license": "MIT",
   "type": "module",
   "scripts": {
     "build": "rollup -c"
+  },
+  "engines": {
+    "node": ">= 8"
   },
   "keywords": [],
   "author": "Monkey",
@@ -23,5 +26,6 @@
     "rollup-plugin-sourcemaps": "^0.6.3",
     "rollup-plugin-typescript2": "^0.31.1",
     "typescript": "^4.5.4"
-  }
+  },
+  "repository": ""
 }
